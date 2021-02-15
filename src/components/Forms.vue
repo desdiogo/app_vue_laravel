@@ -251,10 +251,10 @@ export default {
 
     methods: {
         inicialize() {
-            axios("http://localhost:8000/api/carros").then((res) => {
+            axios("https://app.desdiogo.com/api/carros").then((res) => {
                 this.carros = res.data;
             });
-            axios("http://localhost:8000/api/marcas").then((res) => {
+            axios("https://app.desdiogo.com/api/marcas").then((res) => {
                 this.marcas = res.data;
             });
         },
@@ -274,7 +274,7 @@ export default {
             this.messageOverlay = "Deletando o registro";
             this.overlay = true;
             axios
-                .delete(`http://localhost:8000/api/carros/${this.editedIndex}`)
+                .delete(`https://app.desdiogo.com/api/carros/${this.editedIndex}`)
                 .then((response) => {
                     if (
                         response.request.readyState === 4 &&
@@ -325,7 +325,7 @@ export default {
             if (this.editedIndex === -1) {
                 this.messageOverlay = "Salvando Registro";
                 axios
-                    .post("http://localhost:8000/api/carros", requestItems)
+                    .post("https://app.desdiogo.com/api/carros", requestItems)
                     .then((response) => {
                         if (
                             response.request.readyState === 4 &&
@@ -340,7 +340,7 @@ export default {
                 this.messageOverlay = "Atualizando Registro";
                 axios
                     .put(
-                        `http://localhost:8000/api/carros/${this.editedIndex}`,
+                        `https://app.desdiogo.com/api/carros/${this.editedIndex}`,
                         requestItems
                     )
                     .then((response) => {
